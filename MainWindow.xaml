@@ -1,0 +1,52 @@
+﻿<Window x:Class="LogAnalyzer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LogAnalyzer"
+        mc:Ignorable="d"
+        Title="Log Analyzer" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <UniformGrid Rows="1">
+                    <Button Content="Open Folder" Click="bn_OpenFolder_Click"/>
+                    <CheckBox Name="cbCSV"  Content="CSV"/>
+                </UniformGrid>
+                <TextBlock Grid.Row="1" Name="tbPath" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+            </Grid>
+            <GroupBox Header="List" Grid.Row="1">
+                <ListBox Name="listFile" MouseDoubleClick="ListFile_MouseDoubleClick"/>
+            </GroupBox>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label Content="Search Filter"/>
+                <TextBox Grid.Column="1" Name="tbSearchString" VerticalContentAlignment="Center" TextChanged="TbSearchString_TextChanged"/>
+            </Grid>
+            <GroupBox Header="Contents" Grid.Row="1">
+                <DataGrid Name="dg_Contents" Margin="5,3" SelectionMode="Single" CanUserAddRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserDeleteRows="False" CanUserResizeColumns="False" CanUserSortColumns="False" HeadersVisibility="None" HorizontalGridLinesBrush="LightGray" VerticalGridLinesBrush="Transparent" FontSize="14" HorizontalScrollBarVisibility="Auto"/>
+            </GroupBox>
+        </Grid>
+    </Grid>
+</Window>
